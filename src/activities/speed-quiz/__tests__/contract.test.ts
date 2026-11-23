@@ -1,0 +1,2 @@
+import { describe, expect, it } from 'vitest'; import { scoreAnswer, speedQuizDataSchema } from '../schema'; import { speedQuizSamples } from '../samples'; import { speedQuizPrompt } from '../prompt';
+describe('speed-quiz contract', () => { it('validates samples and prompt', () => { expect(speedQuizDataSchema.safeParse(speedQuizSamples[0].data).success).toBe(true); expect(speedQuizDataSchema.safeParse(speedQuizPrompt.example).success).toBe(true); }); it('pays a combo bonus', () => { expect(scoreAnswer(0)).toBe(100); expect(scoreAnswer(3)).toBe(130); }); });

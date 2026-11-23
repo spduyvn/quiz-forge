@@ -1,0 +1,9 @@
+{
+  "name": "QuizForge",
+  "short_name": "QuizForge",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#4f46e5",
+  "background_color": "#f8fafc",
+  "icons": []
+}

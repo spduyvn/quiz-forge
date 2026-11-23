@@ -1,0 +1,10 @@
+{
+  "schema": "quizforge.content",
+  "version": "1.0",
+  "meta": { "title": "Bài học tương tác mẫu", "description": "Quiz, flashcard và ghép cặp trong cùng một file.", "language": "vi", "tags": ["mẫu", "khoa học"] },
+  "activities": [
+    { "id": "quiz-khoa-hoc", "kind": "quiz", "config": { "mode": "practice" }, "data": { "title": "Khoa học nhanh", "questions": [{ "id": "q1", "type": "true_false", "prompt": "Mặt Trời là một ngôi sao.", "correct": true, "tags": ["thiên văn"] }] } },
+    { "id": "cards-tu-vung", "kind": "flashcard", "data": { "title": "Từ vựng", "cards": [{ "id": "c1", "front": "sun", "back": "mặt trời" }, { "id": "c2", "front": "moon", "back": "mặt trăng" }] } },
+    { "id": "match-khai-niem", "kind": "memory-match", "data": { "title": "Ghép khái niệm", "pairs": [{ "id": "p1", "concept": "HTML", "definition": "Ngôn ngữ đánh dấu" }, { "id": "p2", "concept": "CSS", "definition": "Ngôn ngữ tạo kiểu" }] } }
+  ]
+}

@@ -1,0 +1,2 @@
+import { describe, expect, it } from 'vitest'; import { sortingGameDataSchema } from '../schema'; import { sortingGameSamples } from '../samples'; import { sortingGamePrompt } from '../prompt';
+describe('sorting-game contract', () => { it('validates samples and prompt', () => { expect(sortingGameDataSchema.safeParse(sortingGameSamples[0].data).success).toBe(true); expect(sortingGameDataSchema.safeParse(sortingGamePrompt.example).success).toBe(true); }); });

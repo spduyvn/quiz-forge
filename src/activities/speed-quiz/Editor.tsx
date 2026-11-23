@@ -1,0 +1,3 @@
+import type { EditorProps } from '../../core/types';
+import type { SpeedQuizData } from './schema';
+export default function SpeedQuizEditor({ data, onChange }: EditorProps<SpeedQuizData>) { return <div className="space-y-3"><input className="w-full rounded border p-2" value={data.title} onChange={(e) => onChange({ ...data, title: e.target.value })} /><label className="block">Giới hạn giây<input type="number" className="ml-2 rounded border p-1" value={data.timeLimitSec} onChange={(e) => onChange({ ...data, timeLimitSec: Number(e.target.value) })} /></label><label className="block">Số mạng<input type="number" className="ml-2 rounded border p-1" value={data.lives} onChange={(e) => onChange({ ...data, lives: Number(e.target.value) })} /></label></div>; }

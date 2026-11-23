@@ -1,0 +1,5 @@
+import type { ActivityModule, ResultSummary } from '../../core/types';
+import { memoryMatchDataSchema, type MemoryMatchData, type MemoryMatchResult } from './schema';
+import Player from './Player'; import Editor from './Editor'; import { memoryMatchSamples } from './samples'; import { memoryMatchPrompt } from './prompt';
+export const memoryMatchModule: ActivityModule<MemoryMatchData, MemoryMatchResult> = { kind: 'memory-match', version: '1.0', meta: { name: { vi: 'Ghép cặp', en: 'Memory match' }, description: { vi: 'Lật và ghép khái niệm với định nghĩa.', en: 'Match concepts and definitions.' }, icon: '🧠', tags: ['memory', 'matching'] }, dataSchema: memoryMatchDataSchema, Player, Editor, summarize: (result): ResultSummary => ({ activityId: '', kind: 'memory-match', score: Math.max(0, result.moves), maxScore: Math.max(1, result.moves), percent: 100, durationMs: result.durationMs, completedAt: new Date().toISOString(), details: [] }), samples: memoryMatchSamples, aiPrompt: memoryMatchPrompt };
+export default memoryMatchModule;

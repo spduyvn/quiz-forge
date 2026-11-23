@@ -1,0 +1,5 @@
+import type { ActivityModule, ResultSummary } from '../../core/types';
+import { wordScrambleDataSchema, type WordScrambleData, type WordScrambleResult } from './schema';
+import Player from './Player'; import Editor from './Editor'; import { wordScrambleSamples } from './samples'; import { wordScramblePrompt } from './prompt';
+export const wordScrambleModule: ActivityModule<WordScrambleData, WordScrambleResult> = { kind: 'word-scramble', version: '1.0', meta: { name: { vi: 'Sắp xếp chữ', en: 'Word scramble' }, description: { vi: 'Sắp xếp các chữ cái thành từ đúng.', en: 'Rearrange letters into words.' }, icon: '🔤', tags: ['word', 'spelling'] }, dataSchema: wordScrambleDataSchema, Player, Editor, summarize: (result): ResultSummary => ({ activityId: '', kind: 'word-scramble', score: result.solved, maxScore: result.total, percent: result.total ? Math.round(result.solved / result.total * 100) : 0, durationMs: result.durationMs, completedAt: new Date().toISOString(), details: [] }), samples: wordScrambleSamples, aiPrompt: wordScramblePrompt };
+export default wordScrambleModule;

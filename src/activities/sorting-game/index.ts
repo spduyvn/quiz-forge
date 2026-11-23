@@ -1,0 +1,5 @@
+import type { ActivityModule, ResultSummary } from '../../core/types';
+import { sortingGameDataSchema, type SortingGameData, type SortingGameResult } from './schema';
+import Player from './Player'; import Editor from './Editor'; import { sortingGameSamples } from './samples'; import { sortingGamePrompt } from './prompt';
+export const sortingGameModule: ActivityModule<SortingGameData, SortingGameResult> = { kind: 'sorting-game', version: '1.0', meta: { name: { vi: 'Phân loại', en: 'Sorting game' }, description: { vi: 'Kéo-thả các mục vào đúng nhóm.', en: 'Drag items into the right group.' }, icon: '🗃️', tags: ['drag-drop'] }, dataSchema: sortingGameDataSchema, Player, Editor, summarize: (result): ResultSummary => ({ activityId: '', kind: 'sorting-game', score: result.correct, maxScore: result.total, percent: result.total ? Math.round(result.correct / result.total * 100) : 0, durationMs: result.durationMs, completedAt: new Date().toISOString(), details: [] }), samples: sortingGameSamples, aiPrompt: sortingGamePrompt };
+export default sortingGameModule;

@@ -1,0 +1,9 @@
+{
+  "schema": "quizforge.content",
+  "version": "1.0",
+  "meta": { "title": "Sample interactive lesson", "description": "Quiz, flashcards and matching in one file.", "language": "en", "tags": ["sample", "science"] },
+  "activities": [
+    { "id": "science-quiz", "kind": "quiz", "data": { "title": "Quick science", "questions": [{ "id": "q1", "type": "true_false", "prompt": "The Sun is a star.", "correct": true, "tags": ["astronomy"] }] } },
+    { "id": "vocabulary-cards", "kind": "flashcard", "data": { "title": "Vocabulary", "cards": [{ "id": "c1", "front": "sun", "back": "a star at the center of our solar system" }, { "id": "c2", "front": "moon", "back": "Earth's natural satellite" }] } }
+  ]
+}

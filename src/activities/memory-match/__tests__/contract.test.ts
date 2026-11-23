@@ -1,0 +1,2 @@
+import { describe, expect, it } from 'vitest'; import { memoryMatchDataSchema } from '../schema'; import { memoryMatchSamples } from '../samples'; import { memoryMatchPrompt } from '../prompt';
+describe('memory-match contract', () => { it('validates samples and prompt', () => { expect(memoryMatchDataSchema.safeParse(memoryMatchSamples[0].data).success).toBe(true); expect(memoryMatchDataSchema.safeParse(memoryMatchPrompt.example).success).toBe(true); }); });

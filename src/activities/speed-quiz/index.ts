@@ -1,0 +1,5 @@
+import type { ActivityModule, ResultSummary } from '../../core/types';
+import { speedQuizDataSchema, type SpeedQuizData, type SpeedQuizResult } from './schema';
+import Player from './Player'; import Editor from './Editor'; import { speedQuizSamples } from './samples'; import { speedQuizPrompt } from './prompt';
+export const speedQuizModule: ActivityModule<SpeedQuizData, SpeedQuizResult> = { kind: 'speed-quiz', version: '1.0', meta: { name: { vi: 'Quiz tốc độ', en: 'Speed quiz' }, description: { vi: 'Trả lời nhanh, giữ combo và mạng.', en: 'Answer fast, keep combo and lives.' }, icon: '⚡', tags: ['arcade', 'timed'] }, dataSchema: speedQuizDataSchema, Player, Editor, summarize: (result): ResultSummary => ({ activityId: '', kind: 'speed-quiz', score: result.score, maxScore: Math.max(1, result.total * 200), percent: Math.min(100, Math.round(result.score / Math.max(1, result.total * 200) * 100)), durationMs: result.durationMs, completedAt: new Date().toISOString(), details: [{ tag: 'combo', correct: result.bestCombo, total: result.total }] }), samples: speedQuizSamples, aiPrompt: speedQuizPrompt };
+export default speedQuizModule;
