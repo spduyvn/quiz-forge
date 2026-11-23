@@ -6,7 +6,7 @@ export default function PlayPage() {
   const { activityId } = useParams();
   const content = useContentStore((state) => state.content);
   const addResult = useContentStore((state) => state.addResult);
-  if (!content) return <Navigate to="/" replace />;
+  if (!content) return <Navigate to="/open" replace />;
   const activity = content.activities.find((item) => item.entry.id === activityId);
   if (!activity) return <Navigate to="/lesson" replace />;
   return (
